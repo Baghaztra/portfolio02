@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <NuxtPage />
+  <div class="min-h-screen flex flex-col">
+    <Header />
+    
+    <main class="flex-grow">
+      <NuxtPage />
+    </main>
+    
+    <Footer />
   </div>
 </template>
 
-<script>
+<script setup>
 useSeoMeta({
-  title: 'Baghaztra',
-  description: '[description]',
-  ogTitle: '[og:title]',
-  ogDescription: '[og:description]',
-  ogImage: '[og:image]',
-  ogUrl: '[og:url]',
-  twitterTitle: '[twitter:title]',
-  twitterDescription: '[twitter:description]',
-  twitterImage: '[twitter:image]',
-  twitterCard: 'summary'
+  title: 'Baghaztra - Developer Portfolio',
+  description: 'Welcome to my portfolio! I am a passionate developer with a love for creating beautiful and functional web applications. Explore my projects and get in touch!',
+  image: '/assets/images/informal.jpg',
+  url: 'https://yourwebsite.com',
+  type: 'website'
 })
 </script>
