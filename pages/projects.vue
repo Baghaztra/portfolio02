@@ -65,23 +65,20 @@ const filteredProjects = computed(() => {
   })
 })
 
-// Handle filter changes from FilterBar component
 const handleFilterChange = (newFilters) => {
   filters.category = newFilters.category
   filters.search = newFilters.search
 }
 
-// Reset filters to default values
 const resetFilters = () => {
   filters.category = 'all'
   filters.search = ''
 }
 
-// Set page meta
 useHead({
-  title: 'Projects - Developer Portfolio',
+  title: 'Projects | Baghaztra',
   meta: [
-    { name: 'description', content: 'Showcase of software development projects across various categories and technologies.' }
+    { name: 'description', content: 'Showcase of my projects across various categories and technologies.' }
   ]
 })
 </script>

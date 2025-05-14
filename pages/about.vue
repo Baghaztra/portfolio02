@@ -8,8 +8,8 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
         <div>
-          <img src="https://images.pexels.com/photos/5483064/pexels-photo-5483064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-               alt="Developer profile" 
+          <img src="assets/images/about.jpg"
+               alt="About Me" 
                class="w-full h-auto rounded-lg shadow-lg" />
         </div>
         
@@ -23,7 +23,7 @@
           <ul class="space-y-3 mb-6">
             <li class="flex items-center text-neutral-600 dark:text-neutral-400">
               <Icon name="mdi:account" class="w-5 h-5 mr-3 text-primary-600 dark:text-primary-500" />
-              <span><strong>Name:</strong> {{ about.name }}</span>
+              <span><strong>Name:</strong> {{ about.fullname }}</span>
             </li>
             <li class="flex items-center text-neutral-600 dark:text-neutral-400">
               <Icon name="mdi:briefcase" class="w-5 h-5 mr-3 text-primary-600 dark:text-primary-500" />
@@ -53,11 +53,11 @@
         
         <div class="space-y-6">
           <div v-for="(edu, index) in about.education" :key="index" 
-               class="card p-6 transition-all hover:shadow-lg">
+              class="card p-6 transition-all hover:shadow-lg">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <h4 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">{{ edu.degree }}</h4>
-                <p class="text-neutral-600 dark:text-neutral-400">{{ edu.institution }}</p>
+                <h4 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">{{ edu.program }}</h4>
+                <p class="text-neutral-600 dark:text-neutral-400">{{ edu.major }} - {{ edu.institution }}</p>
               </div>
               <div class="text-neutral-500 dark:text-neutral-500 text-sm md:text-right">
                 {{ edu.year }}
@@ -69,7 +69,7 @@
       
       <!-- Experience Section -->
       <div>
-        <h3 class="text-2xl font-semibold mb-8 text-neutral-800 dark:text-neutral-200 text-center">Work Experience</h3>
+        <h3 class="text-2xl font-semibold mb-8 text-neutral-800 dark:text-neutral-200 text-center">Experience</h3>
         
         <div class="space-y-6">
           <div v-for="(exp, index) in about.experience" :key="index" 
@@ -94,9 +94,8 @@
 <script setup>
 import { about } from '~/utils/data'
 
-// Set page meta
 useHead({
-  title: 'About Me - Developer Portfolio',
+  title: 'About Me | Baghaztra',
   meta: [
     { name: 'description', content: 'Learn more about my experience, skills, and background as a software developer.' }
   ]

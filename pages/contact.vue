@@ -45,9 +45,8 @@
 <script setup>
 import { about } from '~/utils/data'
 
-// Set page meta
 useHead({
-  title: 'Contact - Developer Portfolio',
+  title: 'Contact | Baghaztra',
   meta: [
     { name: 'description', content: 'Get in touch with me for project inquiries or collaboration opportunities.' }
   ]

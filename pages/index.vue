@@ -11,12 +11,10 @@
               Hi, I'm {{ about.name }}!
             </h1>
             <p class="text-primary-600 dark:text-primary-500 text-xl mb-6">
-              Aspiring Software Developer
+              {{ about.role }}
             </p>
             <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl">
-              An Information Technology student majoring in Software Engineering Technology, with a
-              particular interest in programming logic. Proficient in OOP concepts, web development,
-              and managing databases. Also passionate about game development.
+              {{ about.bio }}
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -29,7 +27,7 @@
             <div
               class="w-full h-96 rounded-lg bg-white dark:bg-neutral-800 shadow-xl overflow-hidden relative">
               <img
-                src="assets/images/informal.jpg"
+                src="assets/images/profile.jpg"
                 alt="Profile Picture"
                 class="w-full h-full object-cover" />
             </div>
@@ -73,9 +71,7 @@
 </template>
 
 <script setup>
-import { about, projects, articles, testimonials } from "~/utils/data";
+import { about, projects } from "~/utils/data";
 
 const featuredProjects = computed(() => projects.slice(0, 3));
-
-const latestArticles = computed(() => articles.slice(0, 2));
 </script>
