@@ -1,103 +1,3 @@
-export const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Website",
-    description:
-      "A full-featured e-commerce platform with product filtering, cart functionality, and secure checkout.",
-    image:
-      "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Frontend", "Backend"],
-    technologies: ["Vue.js", "Node.js", "MongoDB", "Stripe"],
-    repository: "https://github.com/username/ecommerce-website",
-    demoUrl: "https://ecommerce-demo.example.com",
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description:
-      "A Kanban-style task management application with drag-and-drop functionality and team collaboration features.",
-    image:
-      "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Frontend", "Mobile"],
-    technologies: ["React", "Redux", "Firebase", "Material UI"],
-    repository: "https://github.com/username/task-management-app",
-    demoUrl: "https://task-app-demo.example.com",
-  },
-  {
-    id: 3,
-    title: "Weather Forecast App",
-    description:
-      "A mobile-responsive weather application that provides real-time forecasts based on location.",
-    image:
-      "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Frontend", "API Integration"],
-    technologies: ["HTML", "CSS", "JavaScript", "OpenWeatherAPI"],
-    repository: "https://github.com/username/weather-app",
-    demoUrl: "https://weather-forecast-demo.example.com",
-  },
-  {
-    id: 4,
-    title: "Blogging Platform",
-    description:
-      "A content management system for bloggers with markdown support and image optimization.",
-    image:
-      "https://images.pexels.com/photos/261662/pexels-photo-261662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Backend", "CMS"],
-    technologies: ["Django", "PostgreSQL", "AWS S3", "Bootstrap"],
-    repository: "https://github.com/username/blog-platform",
-  },
-  {
-    id: 5,
-    title: "Fitness Tracker",
-    description:
-      "A cross-platform mobile application for tracking workouts, nutrition, and progress.",
-    image:
-      "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Mobile", "UI/UX"],
-    technologies: ["React Native", "GraphQL", "MongoDB", "Expo"],
-    repository: "https://github.com/username/fitness-tracker",
-  },
-  {
-    id: 6,
-    title: "Portfolio Website",
-    description: "A personal portfolio website to showcase projects and skills (this website).",
-    image:
-      "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    categories: ["Frontend", "UI/UX"],
-    technologies: ["Nuxt.js", "Tailwind CSS", "Netlify"],
-    repository: "https://github.com/username/portfolio-website",
-    demoUrl: "https://portfolio-demo.example.com",
-  },
-];
-
-export const skills = [
-  {
-    name: 'Programming Languages',
-    icon: 'mdi:language-cpp',
-    skills: ['Java', 'C++', 'PHP', 'Python', 'JavaScript', 'Golang']
-  },
-  {
-    name: 'Frameworks',
-    icon: 'mdi:application-braces',
-    skills: ['Laravel', 'Flask', 'Vue.js', 'Nuxt.js', 'Next.js', 'Flutter']
-  },
-  {
-    name: 'CSS Frameworks',
-    icon: 'mdi:palette-swatch',
-    skills: ['Bootstrap', 'Tailwind CSS']
-  },
-  {
-    name: 'Database / Backend Service',
-    icon: 'mdi:database',
-    skills: ['MySQL', 'MongoDB', 'Firebase']
-  },
-  {
-    name: 'Tools',
-    icon: 'mdi:toolbox',
-    skills: ['Git', 'Figma', 'Postman', 'Google Developer Console']
-  }
-]
-
 export const about = {
   name: "Baghaztra",
   fullname: "Baghaztra Van Ril",
@@ -137,3 +37,112 @@ export const about = {
     },
   ],
 };
+
+export const projects = [
+  {
+    id: 2,
+    title: "Kamikaze Challenger",
+    description:
+      "A simple 2D endless shooting game where players control a warship fending off attacks from kamikaze planes. Developed independently with Unity for PC.",
+    image: "images/kc.png", 
+    categories: ["Fullstack", "Game"],
+    technologies: ["Unity", "C#"],
+    repository: "https://github.com/Baghaztra/KamikazeChallenger",
+    demoUrl: null,
+  },
+  {
+    id: 3,
+    title: "DICE",
+    description:
+      "Team leader and JavaScript programmer for a website featuring various dice-based games made with JavaScript.",
+    image: "images/dc.png",
+    categories: ["Backend", "Game"],
+    technologies: ["Vanilla JS", "bootstrap"],
+    repository: "https://github.com/Baghaztra/DICE",
+    demoUrl: "https://baghaztra.github.io/DICE/",
+  },
+  {
+    id: 4,
+    title: "Pesona Simarasok",
+    description:
+      "Backend developer for a tourism destination website called Simarasok, built with Laravel as part of the Talent Scouting Academy program on campus.",
+    image: "images/pm.png",
+    categories: ["Backend"],
+    technologies: ["Laravel", "MySQL"],
+    repository: "https://github.com/Baghaztra/TSA_Simarasok",
+    demoUrl: "https://simarasok.umkm-pnp.com/",
+  },
+  {
+    id: 5,
+    title: "Nongki",
+    description:
+      "Backend/fullstack developer for a web application to discover hangout spots like cafes, workspaces, and more. Developed for the FireTech2024 hackathon at Andalas University.",
+    image: "images/nk.png",
+    categories: ["Backend", "Fullstack"],
+    technologies: ["Laravel", "MySQL", "JQUery", "Bootstrap"],
+    repository: "https://github.com/Baghaztra/Nongki",
+    demoUrl: null,
+  },
+  {
+    id: 6,
+    title: "Bro Rimbo",
+    description:
+      "Backend programmer for an employee information system project for the Forestry Department of West Sumatra, focusing on leave management feature improvements.",
+    image: "images/br.png",
+    categories: ["Backend"],
+    technologies: ["Laravel", "MySQL"],
+    repository: null,
+    demoUrl: null,
+  },
+  {
+    id: 7,
+    title: "Flight Passenger Predictor",
+    description:
+      "Machine learning project to predict airplane passengers at several airports using official data from Indonesia's BPS (Central Bureau of Statistics). Built with Flask for the web app and scikit-learn, XGBoost for model training.",
+    image: "images/ml.png",
+    categories: ["Machine Learning", "Fullstack"],
+    technologies: ["Scikit-learn", "Flask", "XGBoost"],
+    repository: "https://github.com/Baghaztra/ProjectAkhirML",
+    demoUrl: null,
+  },
+  {
+    id: 8,
+    title: "Pusat Event Politeknik",
+    description:
+      "A website for Politeknik Negeri Padang's event center, developed as a final project for a semester 5 course. Features include event listings, participant registration, and user management.",
+    image: "images/pep.png",
+    categories: ["Fullstack"],
+    technologies: ["Vue.js", "Flask", "MySQL", "Bootstrap", "Google OAuth"],
+    repository: "https://github.com/Baghaztra/ProjectAkhirML",
+    demoUrl: null,
+  },
+];
+
+export const skills = [
+  {
+    name: 'Programming Languages',
+    icon: 'mdi:code-json',
+    skills: ['Java', 'PHP', 'Python', 'JavaScript']
+  },
+  {
+    name: 'Frameworks',
+    icon: 'mdi:application-braces',
+    skills: ['Laravel (PHP)', 'Flask (Python)', 'Nuxt.js (Vue/JavaScript)', 'Next.js (React/JavaScript)']
+  },
+  {
+    name: 'Tools',
+    icon: 'mdi:toolbox',
+    skills: ['Git', 'Figma', 'Google Developer Console']
+  },
+  {
+    name: 'CSS Frameworks',
+    icon: 'mdi:palette-swatch',
+    skills: ['Bootstrap', 'Tailwind CSS']
+  },
+  {
+    name: 'Database / Backend Service',
+    icon: 'mdi:database',
+    skills: ['MySQL', 'Firebase']
+  },
+]
+

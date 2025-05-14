@@ -29,8 +29,8 @@
             <Icon name="mdi:github" class="w-7 h-7" />
           </div>
           <h3 class="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-200">GitHub</h3>
-          <p class="text-neutral-600 dark:text-neutral-400 mb-4">github.com/username</p>
-          <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-500 hover:underline">View Profile</a>
+          <p class="text-neutral-600 dark:text-neutral-400 mb-4">github.com/Baghaztra</p>
+          <a href="https://github.com/Baghaztra" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-500 hover:underline">View Profile</a>
         </div>
       </div>
       
