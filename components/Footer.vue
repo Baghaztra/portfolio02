@@ -9,28 +9,13 @@
         </div>
         <div class="flex flex-row gap-4">
           <a
-            href="https://github.com/Baghaztra"
+            v-for="social in about.socialLinks"
+            :href="social.url"
             target="_blank"
             rel="noopener noreferrer"
             class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-500 transition-colors">
-            <Icon name="mdi:github" class="w-6 h-6" />
-            <span class="sr-only">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/baghaztra-van-ril-8011b0294"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-500 transition-colors">
-            <Icon name="mdi:linkedin" class="w-6 h-6" />
-            <span class="sr-only">LinkedIn</span>
-          </a>
-          <a
-            href="https://www.instagram.com/baghaztra"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-500 transition-colors">
-            <Icon name="mdi:instagram" class="w-6 h-6" />
-            <span class="sr-only">LinkedIn</span>
+            <Icon :name="social.icon" class="w-6 h-6" />
+            <span class="sr-only">{{ social.name }}</span>
           </a>
         </div>
       </div>
@@ -42,3 +27,7 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import { about } from '~/utils/data';
+</script>

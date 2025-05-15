@@ -7,30 +7,13 @@
       />
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <div class="card p-6 flex flex-col items-center text-center">
+        <div v-for="sm in about.socialLinks" class="card p-6 flex flex-col items-center text-center">
           <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-500 rounded-full flex items-center justify-center mb-4">
-            <Icon name="mdi:email" class="w-7 h-7" />
+            <Icon :name="sm.icon" class="w-7 h-7" />
           </div>
-          <h3 class="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-200">Email</h3>
-          <p class="text-neutral-600 dark:text-neutral-400 mb-4">{{ about.email }}</p>
-          <a :href="`mailto:${about.email}`" class="text-primary-600 dark:text-primary-500 hover:underline">Send an email</a>
-        </div>
-        
-        <div class="card p-6 flex flex-col items-center text-center">
-          <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-500 rounded-full flex items-center justify-center mb-4">
-            <Icon name="mdi:map-marker" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-200">Location</h3>
-          <p class="text-neutral-600 dark:text-neutral-400">{{ about.location }}</p>
-        </div>
-        
-        <div class="card p-6 flex flex-col items-center text-center">
-          <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-500 rounded-full flex items-center justify-center mb-4">
-            <Icon name="mdi:github" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-200">GitHub</h3>
-          <p class="text-neutral-600 dark:text-neutral-400 mb-4">github.com/Baghaztra</p>
-          <a href="https://github.com/Baghaztra" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-500 hover:underline">View Profile</a>
+          <h3 class="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-200">
+            <a :href="sm.url" target="_blank" class="hover:text-primary-600 hover:dark:text-primary-500 hover:underline">{{ sm.name }}</a>
+          </h3>
         </div>
       </div>
       
