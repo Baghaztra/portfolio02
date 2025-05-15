@@ -52,7 +52,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="max-w-3xl mx-auto bg-white dark:bg-neutral-900 rounded-md shadow-md">
+  <section class="max-w-3xl mt-3 py-6 px-2 mx-auto bg-white dark:bg-neutral-900 rounded-md shadow-md">
     <h2 class="text-2xl mb-4 mt-6">Comments</h2>
 
     <div v-if="loading" class="flex items-center space-x-2 text-primary-900 dark:text-primary-200">
