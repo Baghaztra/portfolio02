@@ -1,18 +1,20 @@
 <template>
-  <div class="flex items-center space-x-2">
-    <button
-      @click="toggleColorMode"
-      :class="[
-        'w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300',
-        colorMode.value === 'dark' ? 'bg-primary-600' : 'bg-gray-300',
-      ]">
-      <div
+  <ClientOnly>
+    <div class="flex items-center space-x-2">
+      <button
+        @click="toggleColorMode"
         :class="[
-          'w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300',
-          colorMode.value === 'dark' ? 'translate-x-6' : 'translate-x-0',
-        ]"></div>
-    </button>
-  </div>
+          'w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300',
+          colorMode.value === 'dark' ? 'bg-primary-600' : 'bg-gray-300',
+        ]">
+        <div
+          :class="[
+            'w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300',
+            colorMode.value === 'dark' ? 'translate-x-6' : 'translate-x-0',
+          ]"></div>
+      </button>
+    </div>
+  </ClientOnly>
 </template>
 
 <script setup>

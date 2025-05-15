@@ -90,7 +90,7 @@
           <div
             v-for="(exp, index) in experience"
             :key="index"
-            class="card p-6 transition-all hover:shadow-lg">
+            class="card p-6 transition-all hover:shadow-xl">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
               <div>
                 <h4 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">

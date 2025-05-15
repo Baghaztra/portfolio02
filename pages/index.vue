@@ -1,39 +1,37 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative py-20 md:py-32 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-primary-700/30 dark:from-primary-900/30 dark:to-primary-950/50"></div>
-
-      <div class="container-custom relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="animate-slide-up">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white mb-2">
-              Hi, I'm {{ about.name }}!
-            </h1>
-            <p class="text-primary-600 dark:text-primary-500 text-xl mb-6">
-              {{ about.role }}
-            </p>
-            <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl">
-              {{ about.bio }}
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-              <NuxtLink to="/projects" class="btn btn-primary"> View My Work </NuxtLink>
-              <NuxtLink to="/contact" class="btn btn-outline"> Get In Touch </NuxtLink>
+    <section class="felx h-screen md:px-6 inset-0 bg-gradient-to-br from-primary-500/20 to-primary-700/30 dark:from-primary-900/30 dark:to-primary-950/50">
+        <div class="container-custom flex flex-col justify-center h-full">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-slide-up">
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white mb-2">
+                Hi, I'm {{ about.name }}!
+              </h1>
+              <p class="text-primary-600 dark:text-primary-500 text-xl mb-6">
+                {{ about.role }}
+              </p>
+              <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl">
+                {{ about.bio }}
+              </p>
+  
+              <div class="flex flex-wrap gap-4">
+                <NuxtLink to="/projects" class="btn btn-primary"> View My Work </NuxtLink>
+                <NuxtLink to="/contact" class="btn btn-outline"> Get In Touch </NuxtLink>
+              </div>
             </div>
-          </div>
-
-          <div class="relative hidden lg:block">
-            <div
-              class="w-full h-96 rounded-lg bg-white dark:bg-neutral-800 shadow-xl overflow-hidden relative">
-              <img
-                src="assets/images/profile.jpg"
-                alt="Profile Picture"
-                class="w-full h-full object-cover" />
+  
+            <div class="relative hidden lg:block">
+              <div
+                class="w-full h-96 rounded-lg bg-white dark:bg-neutral-800 shadow-xl overflow-hidden relative">
+                <img
+                  src="assets/images/profile.jpg"
+                  alt="Profile Picture"
+                  class="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Featured Projects Section -->
