@@ -16,7 +16,7 @@
 
   <div class="card group hover:shadow-lg">
     <div class="relative overflow-hidden">
-      <<img
+      <img
         :src="project.image"
         :alt="project.title"
         class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
