@@ -13,9 +13,11 @@
 <script setup>
 useSeoMeta({
   title: 'Portfolio | Baghaztra',
-  description: 'Welcome to my portfolio! I am a passionate developer with a love for creating beautiful and functional web applications. Explore my projects and get in touch!',
-  image: '/assets/images/informal.jpg',
-  url: 'https://portfolio.bgztra.my.id',
-  type: 'website'
+  description: 'The official portfolio of Baghaztra, a Software Engineering Technology student with a particular interest in programming logic. Explore my projects and feel free to connect!',
+  ogTitle: 'Portfolio | Baghaztra',
+  ogDescription: 'Welcome to my portfolio!',
+  ogImage: 'https://bgztra.my.id/_nuxt/profile.B8ILKl6i.jpg',
+  ogUrl: 'https://portfolio.bgztra.my.id',
+  twitterCard: 'summary_large_image'
 })
 </script>
