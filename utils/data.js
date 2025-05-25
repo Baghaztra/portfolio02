@@ -68,6 +68,28 @@ export const projects = [
     demoUrl: "https://simarasok.umkm-pnp.com/",
   },
   {
+    title: "E Bio X",
+    description: "An e-learning web application that implements K-Means clustering and Decision Tree algorithms to group students based on their quiz results. Currently still in development.",
+    image: "images/ebx.png",
+    categories: ["Fullstack", "Web", "Machine Learning"],
+    technologies: ["Nuxt.js", "Flask", "Tailwind", "MySQL", "Scikit-learn"],
+    repository: [
+      { name: "Frontend", url: "https://github.com/Baghaztra/e-bio-x" },
+      { name: "Backend", url: "https://github.com/Baghaztra/e-bio-x-backend" },
+    ],
+    demoUrl: null
+  },
+  {
+    title: "Inaglob Website",
+    description:
+    "Company profile website for PT. Inovasi Asiatech Global (Inaglob), a tech company that focuses on research, tech solutions, and digital training services. Currently in development.",
+    image: "images/ig.png",
+    categories: ["Fullstack", "Web"],
+    technologies: ["Laravel", "Hotwire/Turbo", "Tailwind", "MySQL"],
+    repository: null,
+    demoUrl: "https://inaglob.com",
+  },
+  {
     title: "Cybertech PNP",
     description:
       "Initiated and led the development of an organizational website for Cybertech PNP. The platform allows users to view event listings and register for available events.",
@@ -94,7 +116,10 @@ export const projects = [
     image: "images/cl.png",
     categories: ["Fullstack", "Mobile"],
     technologies: ["Flutter", "Laravel", "Filament"],
-    repository: "https://github.com/Zephhyyrr/PT.RAI-company-profile",
+    repository: [
+      { name: "Mobile App", url: "https://github.com/Baghaztra/clinic_project" },
+      { name: "Backend", url: "https://github.com/Baghaztra/backend-klinik" },
+    ],
     demoUrl: null,
   },
   {
@@ -103,7 +128,7 @@ export const projects = [
       "Web application developed for Politeknik Negeri Padang to manage internal reports and document archives within the institution.",
     image: "images/spi.png",
     categories: ["Fullstack", "Web"],
-    technologies: ["Laravel", "MySQL"],
+    technologies: ["Laravel", "MySQL", "Bootstrap"],
     repository: "https://github.com/Baghaztra/SPI-PNP",
     demoUrl: null,
   },
@@ -123,7 +148,7 @@ export const projects = [
       "Backend programmer for an employee information system project for the Forestry Department of West Sumatra, focusing on leave management feature improvements.",
     image: "images/br.png",
     categories: ["Backend", "Web"],
-    technologies: ["Laravel", "MySQL"],
+    technologies: ["Laravel", "MySQL", "Bootstrap"],
     repository: null,
     demoUrl: null,
   },

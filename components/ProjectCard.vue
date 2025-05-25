@@ -1,18 +1,15 @@
 <template>
-<transition name="fade-slide">
-  <div 
-    v-if="showModal"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
-    @click.self="showModal = false"
-  >
-    <img 
-      :src="project.image" 
-      :alt="project.title" 
-      class="max-w-[90%] max-h-[90%] object-contain rounded-lg shadow-lg"
-    />
-  </div>
-</transition>
-
+  <transition name="fade-slide">
+    <div
+      v-if="showModal"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+      @click.self="showModal = false">
+      <img
+        :src="project.image"
+        :alt="project.title"
+        class="max-w-[90%] max-h-[90%] object-contain rounded-lg shadow-lg" />
+    </div>
+  </transition>
 
   <div class="card group hover:shadow-lg">
     <div class="relative overflow-hidden">
@@ -48,15 +45,30 @@
       </div>
 
       <div class="flex space-x-4">
-        <a
-          v-if="project.repository"
-          :href="project.repository"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-500">
-          <Icon name="mdi:github" class="w-5 h-5 mr-1" />
-          Repository
-        </a>
+        <template v-if="project.repository">
+          <!-- Kalau array -->
+          <template v-if="Array.isArray(project.repository)">
+            <a
+              v-for="(repo, index) in project.repository"
+              :key="index"
+              :href="repo.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-500">
+              <Icon name="mdi:github" class="w-5 h-5 mr-1" />
+              {{ repo.name }}
+            </a>
+          </template>
+          <a
+            v-else
+            :href="project.repository"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-500">
+            <Icon name="mdi:github" class="w-5 h-5 mr-1" />
+            Repository
+          </a>
+        </template>
         <a
           v-if="project.demoUrl"
           :href="project.demoUrl"
@@ -76,9 +88,12 @@ import { ref, watch, onUnmounted } from "vue";
 
 const showModal = ref(false);
 
-watch(() => showModal, (val) => {
-  document.body.style.overflow = val ? 'hidden' : '';
-});
+watch(
+  () => showModal,
+  (val) => {
+    document.body.style.overflow = val ? "hidden" : "";
+  }
+);
 
 onUnmounted(() => {
   document.body.style.overflow = "";
@@ -93,16 +108,18 @@ defineProps({
 </script>
 
 <style scoped>
-.fade-slide-enter-active, .fade-slide-leave-active {
+.fade-slide-enter-active,
+.fade-slide-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.fade-slide-enter-from, .fade-slide-leave-to {
+.fade-slide-enter-from,
+.fade-slide-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
-.fade-slide-enter-to, .fade-slide-leave-from {
+.fade-slide-enter-to,
+.fade-slide-leave-from {
   opacity: 1;
   transform: translateY(0);
 }
-
 </style>
