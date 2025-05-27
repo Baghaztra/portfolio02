@@ -77,7 +77,7 @@ export const projects = [
       { name: "Frontend", url: "https://github.com/Baghaztra/e-bio-x" },
       { name: "Backend", url: "https://github.com/Baghaztra/e-bio-x-backend" },
     ],
-    demoUrl: null
+    demoUrl: "https://ebiox.bgztra.my.id/"
   },
   {
     title: "Inaglob Website",
