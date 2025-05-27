@@ -121,6 +121,7 @@ useHead({
       name: "description",
       content: "Learn more about my experience, skills, and background as a software developer.",
     },
+    { name: 'robots', content: 'noindex' }
   ],
 });
 </script>

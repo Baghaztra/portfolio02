@@ -72,4 +72,14 @@
 import { about, projects } from "~/utils/data";
 
 const featuredProjects = computed(() => projects.slice(0, 3));
+
+useHead({
+  title: 'Portfolio | Baghaztra',
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://bgztra.my.id/'
+    }
+  ]
+})
 </script>

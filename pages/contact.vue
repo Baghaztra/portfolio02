@@ -34,7 +34,8 @@ import { about } from '~/utils/data'
 useHead({
   title: 'Contact | Baghaztra',
   meta: [
-    { name: 'description', content: 'Get in touch with me for project inquiries or collaboration opportunities.' }
+    { name: 'description', content: 'Get in touch with me for project inquiries or collaboration opportunities.' },
+    { name: 'robots', content: 'noindex' }
   ]
 })
 </script>

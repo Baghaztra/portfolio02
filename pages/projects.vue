@@ -78,7 +78,8 @@ const resetFilters = () => {
 useHead({
   title: 'Projects | Baghaztra',
   meta: [
-    { name: 'description', content: 'Showcase of my projects across various categories and technologies.' }
+    { name: 'description', content: 'Showcase of my projects across various categories and technologies.' },
+    { name: 'robots', content: 'noindex' }
   ]
 })
 </script>
