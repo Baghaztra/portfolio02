@@ -20,16 +20,25 @@
       </div>
       
       <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-5">
-        <ContactForm />
+        <div class="flex justify-end mb-4">
+          <button @click="showModal = true" class="btn btn-primary">
+            <Icon name="mdi:plus" />
+            Leave a Comment
+          </button>
+        </div>
+        <CommentsList />
       </div>
-
-      <CommentsList />
+      <CommentModal :show="showModal" @close="showModal = false" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { about } from '~/utils/data'
+import { about } from '~/utils/data';
+import { ref } from "vue";
+import CommentModal from '~/components/CommentModal.vue';
+
+const showModal = ref(false);
 
 useHead({
   title: 'Contact | Baghaztra',

@@ -80,6 +80,8 @@
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useNuxtApp } from "#app";
 
+const emit = defineEmits(["form-submitted"]);
+
 const form = reactive({
   name: "",
   email: "",
@@ -106,11 +108,12 @@ const submitForm = async () => {
       approved: false,
     });
 
-    successMessage.value = "Your message has been sent successfully! I will get back to you soon.";
+    successMessage.value = "Your comment has been submitted and is awaiting approval.";
 
     form.name = "";
     form.email = "";
     form.message = "";
+    emit("form-submitted");
   } catch (error) {
     console.error("Form submission error:", error);
     errorMessage.value = "There was an error sending your message. Please try again later.";

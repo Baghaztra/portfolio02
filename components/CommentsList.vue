@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { useNuxtApp } from "#app";
 import type { Firestore, Unsubscribe } from "firebase/firestore";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
+import { collection, query, where, orderBy, onSnapshot } from "firebase/firestore";
 
 interface Comment {
   id: string;
@@ -23,7 +23,11 @@ let unsubscribe: Unsubscribe | null = null;
 onMounted(() => {
   try {
     const commentsCol = collection(firestore, "messages");
-    const q = query(commentsCol, orderBy("createdAt", "desc"));
+    const q = query(
+      commentsCol,
+      where("approved", "==", true),
+      orderBy("createdAt", "desc")
+    );
 
     unsubscribe = onSnapshot(
       q,

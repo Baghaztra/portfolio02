@@ -58,18 +58,8 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Pesona Simarasok",
-    description:
-      "Backend developer for a tourism destination website called Simarasok, built with Laravel as part of the Talent Scouting Academy.",
-    image: "images/pm.png",
-    categories: ["Backend", "Web"],
-    technologies: ["Laravel", "MySQL"],
-    repository: "https://github.com/Baghaztra/TSA_Simarasok",
-    demoUrl: "https://simarasok.umkm-pnp.com/",
-  },
-  {
     title: "E Bio X",
-    description: "An e-learning web application that implements K-Means clustering and Decision Tree algorithms to group students based on their quiz results. Currently still in development.",
+    description: "An e-learning web application that implements K-Means clustering and Decision Tree algorithms to group students based on their quiz results.",
     image: "images/ebx.png",
     categories: ["Fullstack", "Web", "Machine Learning"],
     technologies: ["Nuxt.js", "Flask", "Tailwind", "MySQL", "Scikit-learn"],
@@ -82,12 +72,71 @@ export const projects = [
   {
     title: "Inaglob Website",
     description:
-    "Company profile website for PT. Inovasi Asiatech Global (Inaglob), a tech company that focuses on research, tech solutions, and digital training services. Currently in development.",
+    "Company profile website for PT. Inovasi Asiatech Global (Inaglob), a tech company that focuses on research, tech solutions, and digital training services.",
     image: "images/ig.png",
     categories: ["Fullstack", "Web"],
     technologies: ["Laravel", "Hotwire/Turbo", "Tailwind", "MySQL"],
     repository: null,
     demoUrl: "https://inaglob.com",
+  },
+  {
+    title: "SMKN2 Batusangkar TEFA App",
+    description:
+      "A TEFA (Teaching Factory) management application for SMKN2 Batusangkar, built as part of a university community service program. It provides a cashier system and reporting features for school administrators.",
+    image: "images/smk.png",
+    categories: ["Frontend", "Web"],
+    technologies: ["Nuxt", "Tailwind", "Express", "PostgreSQL"],
+    repository: "https://github.com/Zephhyyrr/pengabdian-smk-2-batusangkar",
+    demoUrl: "https://pengabdian-smk-2-batusangkar-fqns.vercel.app/",
+  },
+  {
+    title: "Pesona Simarasok",
+    description:
+      "Backend developer for a tourism destination website called Simarasok, built with Laravel as part of the Talent Scouting Academy.",
+    image: "images/pm.png",
+    categories: ["Backend", "Web"],
+    technologies: ["Laravel", "MySQL"],
+    repository: "https://github.com/Baghaztra/TSA_Simarasok",
+    demoUrl: "https://simarasok.umkm-pnp.com/",
+  },
+  {
+    title: "BOSS (Business One Stop System)",
+    description:
+      "A business management platform for MSMEs that allows business owners to open outlets, showcase their products and services, and manage both online and cashier-based queues. Currently under development.",
+    image: "images/boss.png",
+    categories: ["Frontend", "Web"],
+    technologies: [
+      "Nuxt.js",
+      "Nuxt UI",
+      "Express.js",
+      "PostgreSQL",
+      "Midtrans",
+      "RabbitMQ"
+    ],
+    repository: null,
+    demoUrl: "http://bossapp.id/",
+  },
+  {
+    title: "Ignite Step",
+    description:
+    "An online shoe store catalog app that allows users to browse and purchase shoes. Served as project leader, frontend developer, and DevOps engineer.",
+    image: "images/tk.png",
+    categories: ["Fullstack", "Web"],
+    technologies: [
+      "Nuxt.js",
+      "Tailwind",
+      "Express.js",
+      "Midtrans",
+      "Google OAuth",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+      "PostgreSQL",
+      "Nginx",
+      "Docker"
+    ],
+    repository: "https://github.com/Baghaztra-Van-Ril/uas-toko-sepatu",
+    demoUrl: null,
   },
   {
     title: "Cybertech PNP",
