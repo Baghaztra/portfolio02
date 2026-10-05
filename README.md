@@ -1,18 +1,75 @@
-# Portfolio
+# Nuxt Minimal Starter
 
-This is a work in progress.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## To-Do List
-1. **Make Home Page**  
-    - Design and implement the main landing page.
+## Setup
 
-2. **Make Projects Page**  
-    - Showcase my projects with descriptions and links.
+Make sure to install dependencies:
 
-3. **Create Bio Page**  
-    - Add a personal bio with relevant details.
+```bash
+# npm
+npm install
 
-4. **Set Up Blog**  
-    - Use Nuxt Content to create a blog.  
-    - Learn how to use Nuxt Content for blogging.
+# pnpm
+pnpm install
 
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
