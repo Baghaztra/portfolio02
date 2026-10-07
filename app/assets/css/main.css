@@ -659,6 +659,16 @@ img {
   font-weight: 400;
 }
 
+.collab {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.collab a {
+  font-weight: 700;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 44rem) {

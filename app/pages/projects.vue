@@ -11,13 +11,13 @@
       </p>
       <ol class="work-list">
         <ProjectRow
-          v-for="(p, i) in projects"
+          v-for="(p, i) in archiveProjects"
           :key="p.slug"
           :index="String(i + 1).padStart(3, '0')"
           :heading="p.title"
-          :desc="p.purpose"
+          :desc="p.summary"
           :tags="p.stack"
-          :meta="p.categories.join(' / ')"
+          :meta="`${p.role} · ${p.year}`"
           clickable
           @open="openProject(p)"
         />
@@ -34,7 +34,7 @@
       v-model:maximized="detailOpen"
       @close="active = null"
     >
-      <div class="proj-shot">
+      <div v-if="active.image" class="proj-shot">
         <NuxtPicture
           :src="active.image"
           width="960"
@@ -45,7 +45,8 @@
         />
       </div>
       <h2 class="proj-name">{{ active.title }}</h2>
-      <p>{{ active.purpose }}</p>
+      <ProjectCollaborators :project="active" />
+      <p>{{ active.summary }}</p>
       <ul class="tag-row" :aria-label="`Stack for ${active.title}`">
         <li v-for="t in active.stack" :key="t" class="tag">{{ t }}</li>
       </ul>
@@ -63,12 +64,12 @@
 </template>
 
 <script setup lang="ts">
-import { projects, type ProjectDetail } from '~/data/portfolio';
+import { archiveProjects, type Project } from '~/data/portfolio';
 
-const active = ref<ProjectDetail | null>(null);
+const active = ref<Project | null>(null);
 const detailOpen = ref(false);
 
-const openProject = (p: ProjectDetail) => {
+const openProject = (p: Project) => {
   active.value = p;
   detailOpen.value = true;
 };

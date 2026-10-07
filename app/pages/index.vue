@@ -40,12 +40,12 @@
       <ol class="work-list">
         <ProjectRow
           v-for="p in featuredProjects"
-          :key="p.index"
-          :index="p.index"
-          :heading="p.file"
-          :strong="p.name"
-          :desc="p.purpose"
-          :tags="p.tags"
+          :key="p.featured!.index"
+          :index="p.featured!.index"
+          :heading="p.featured!.file"
+          :strong="p.title"
+          :desc="p.summary"
+          :tags="p.featured!.tags"
           :meta="p.year"
         />
       </ol>
