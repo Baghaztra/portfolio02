@@ -296,10 +296,12 @@ img {
 .window.is-modal {
   position: fixed;
   z-index: 200;
-  inset: 0.75rem;
+  inset: 0;
   margin-bottom: 0;
   display: flex;
   flex-direction: column;
+  border-left: none;
+  border-right: none;
 }
 
 .window.is-modal .window-body {
@@ -307,12 +309,6 @@ img {
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-}
-
-@media (min-width: 44rem) {
-  .window.is-modal {
-    inset: 1.5rem;
-  }
 }
 
 .window-body {
