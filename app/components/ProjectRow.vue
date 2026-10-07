@@ -1,23 +1,38 @@
 <template>
-  <li class="work-item">
-    <span class="work-index">[{{ project.index }}]</span>
+  <li class="work-item" :class="{ 'is-clickable': clickable }">
+    <span class="work-index">[{{ index }}]</span>
     <div>
-      <h3 class="work-name">{{ project.file }}</h3>
+      <h3 class="work-name">{{ heading }}</h3>
       <p class="work-desc">
-        <strong>{{ project.name }}</strong> — {{ project.purpose }}
+        <template v-if="strong"><strong>{{ strong }}</strong> — </template>{{ desc }}
       </p>
       <div class="work-meta">
-        <ul class="tag-row" :aria-label="`Technologies for ${project.name}`">
-          <li v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</li>
+        <ul class="tag-row" :aria-label="`Technologies for ${heading}`">
+          <li v-for="tag in tags" :key="tag" class="tag">{{ tag }}</li>
         </ul>
-        <span class="work-year">{{ project.year }}</span>
+        <span class="work-year">{{ meta }}</span>
       </div>
     </div>
+    <button
+      v-if="clickable"
+      type="button"
+      class="row-hit"
+      :aria-label="`Open details for ${heading}`"
+      @click="$emit('open')"
+    />
   </li>
 </template>
 
 <script setup lang="ts">
-import type { FeaturedProject } from '~/data/portfolio';
+defineProps<{
+  index: string;
+  heading: string;
+  strong?: string;
+  desc: string;
+  tags: string[];
+  meta: string;
+  clickable?: boolean;
+}>();
 
-defineProps<{ project: FeaturedProject }>();
+defineEmits<{ open: [] }>();
 </script>

@@ -54,13 +54,17 @@
 defineProps<{ title: string }>();
 
 // ponytail: per-instance refs only, state resets on reload
+// maximized is a model so parents can force the modal open (detail sheets)
 const minimized = ref(false);
-const maximized = ref(false);
+const maximized = defineModel<boolean>('maximized', { default: false });
 const closed = ref(false);
+
+const emit = defineEmits<{ close: [] }>();
 
 const closeFrame = () => {
   closed.value = true;
   maximized.value = false;
+  emit('close');
 };
 
 // ponytail: minimizing from a modal returns to the inline collapsed frame
