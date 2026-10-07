@@ -67,17 +67,24 @@ const copyLink = async () => {
   }, 900);
 };
 
-const items: MenuItem[] = [
-  { label: '> open /projects', run: () => navigateTo('/projects') },
-  { label: '> open /journey', run: () => navigateTo('/journey') },
-  { label: '> back to top', run: () => window.scrollTo({ top: 0, behavior: smooth() ? 'smooth' : 'auto' }) },
-  { label: copyLabel, run: copyLink },
-  { label: '> GitHub', run: () => window.open('https://github.com/Baghaztra', '_blank', 'noopener') },
-  {
-    label: '> LinkedIn',
-    run: () => window.open('https://www.linkedin.com/in/baghaztra-van-ril-8011b0294', '_blank', 'noopener')
-  }
-];
+const items = computed<MenuItem[]>(() => {
+  const all: MenuItem[] = [
+    { label: '> home', run: () => navigateTo('/') },
+    { label: '> open /projects', run: () => navigateTo('/projects') },
+    { label: '> open /journey', run: () => navigateTo('/journey') },
+    { label: '> back to top', run: () => window.scrollTo({ top: 0, behavior: smooth() ? 'smooth' : 'auto' }) },
+    { label: copyLabel, run: copyLink },
+    { label: '> GitHub', run: () => window.open('https://github.com/Baghaztra', '_blank', 'noopener') },
+    {
+      label: '> LinkedIn',
+      run: () => window.open('https://www.linkedin.com/in/baghaztra-van-ril-8011b0294', '_blank', 'noopener')
+    }
+  ];
+  // ponytail: brand menu is nav-only, page actions stay on right-click
+  return state.value.source === 'brand'
+    ? all.filter((i) => i.label !== '> back to top' && i.label !== copyLabel)
+    : all;
+});
 
 const run = (item: MenuItem) => {
   if (item.label !== copyLabel) close();
@@ -95,6 +102,7 @@ const onContextMenu = (e: MouseEvent) => {
   active.value = 0;
   state.value.x = e.clientX;
   state.value.y = e.clientY;
+  state.value.source = 'context';
   state.value.open = true;
 };
 
@@ -105,11 +113,11 @@ const onKeyDown = (e: KeyboardEvent) => {
     close();
   } else if (e.key === 'ArrowDown') {
     e.preventDefault();
-    active.value = (active.value + 1) % items.length;
+    active.value = (active.value + 1) % items.value.length;
     itemEls.value[active.value]?.focus();
   } else if (e.key === 'ArrowUp') {
     e.preventDefault();
-    active.value = (active.value + items.length - 1) % items.length;
+    active.value = (active.value + items.value.length - 1) % items.value.length;
     itemEls.value[active.value]?.focus();
   }
 };

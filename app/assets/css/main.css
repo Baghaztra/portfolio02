@@ -142,29 +142,22 @@ img {
   font-size: 1.05rem;
 }
 
-.site-nav {
-  display: flex;
-  gap: 0.25rem;
-  font-family: var(--mono);
-  font-size: 0.95rem;
-}
-
-.site-nav a {
-  color: var(--ink);
-  text-decoration: none;
+.brand-btn {
+  background: var(--paper);
+  border: 2px solid var(--ink);
   padding: 0.3rem 0.7rem;
-  border: 2px solid transparent;
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
 }
 
-.site-nav a:hover {
-  border-color: var(--ink);
+.brand-btn:hover {
+  color: var(--red);
   background: var(--paper-dim);
 }
 
-.site-nav a[aria-current="page"] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+.brand-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
 }
 
 /* ---------- Retro window (reusable) ---------- */
@@ -450,27 +443,6 @@ img {
   outline: none;
 }
 
-.menu-btn {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 0.9rem;
-  background: var(--paper);
-  color: var(--ink);
-  border: 2px solid var(--ink);
-  padding: 0.3rem 0.7rem;
-  cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
-}
-
-.menu-btn:hover {
-  background: var(--paper-dim);
-}
-
-.menu-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
-}
-
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -494,7 +466,69 @@ img {
   font-weight: 700;
 }
 
+/* ---------- Project archive ---------- */
+
+.proj-heading {
+  margin-top: 0;
+}
+
+.proj-grid {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.proj-card {
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 1.25rem clamp(1rem, 3vw, 1.5rem);
+  min-width: 0;
+}
+
+.proj-shot {
+  border: 2px solid var(--ink);
+  line-height: 0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.proj-shot img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.proj-name {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  margin: 0 0 0.5rem;
+}
+
+.proj-grid .tag-row {
+  margin-bottom: 0.9rem;
+}
+
+.proj-links {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.proj-nolink {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
 /* ---------- Responsive ---------- */
+
+@media (min-width: 56rem) {
+  .proj-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media (max-width: 44rem) {
   .hero-grid {
