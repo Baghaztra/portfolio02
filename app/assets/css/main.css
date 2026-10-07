@@ -106,6 +106,17 @@ img {
   max-width: 62rem;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* Sticky footer: keep footer at viewport bottom on short pages
+   (e.g. all windows closed, chips only). */
+#__nuxt > div {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .sr-only {
@@ -189,11 +200,92 @@ img {
   flex-shrink: 0;
 }
 
-.window-btns span {
-  width: 0.95rem;
-  height: 0.95rem;
+.window-btns button {
+  width: 1.75rem;
+  height: 1.75rem;
   border: 2px solid #fff;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 0 0.15rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.window-btns button:hover {
+  background: #fff;
+  color: var(--red-bright);
+  text-shadow: none;
+}
+
+.window-btns button:active {
+  transform: translate(1px, 1px);
+}
+
+.window-btns button[data-on="true"] {
+  background: #fff;
+  color: var(--red-bright);
+  text-shadow: none;
+}
+
+.window-btns button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- Window modal (maximized) ---------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  background: rgba(29, 42, 68, 0.62);
+}
+
+.window.is-modal {
+  position: fixed;
+  z-index: 200;
+  inset: 0.75rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.window.is-modal .window-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 44rem) {
+  .window.is-modal {
+    inset: 1.5rem;
+  }
+}
+
+.window-chip {
+  font-family: var(--mono);
+  font-weight: 700;
   display: inline-block;
+  margin-bottom: 2.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.window-chip:hover {
+  background: var(--paper-dim);
 }
 
 .window-body {

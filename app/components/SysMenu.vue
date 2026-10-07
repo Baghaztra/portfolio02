@@ -29,7 +29,7 @@ import { useSysMenu } from '~/composables/useSysMenu';
 
 interface MenuItem {
   label: string;
-  run: () => void | Promise<void>;
+  run: () => any;
 }
 
 const copyLabel = '> copy page link';
@@ -70,13 +70,14 @@ const copyLink = async () => {
 const items = computed<MenuItem[]>(() => {
   const all: MenuItem[] = [
     { label: '> home', run: () => navigateTo('/') },
-    { label: '> open /projects', run: () => navigateTo('/projects') },
-    { label: '> open /journey', run: () => navigateTo('/journey') },
+    { label: '> projects', run: () => navigateTo('/projects') },
+    { label: '> journey', run: () => navigateTo('/journey') },
     { label: '> back to top', run: () => window.scrollTo({ top: 0, behavior: smooth() ? 'smooth' : 'auto' }) },
     { label: copyLabel, run: copyLink },
-    { label: '> GitHub', run: () => window.open('https://github.com/Baghaztra', '_blank', 'noopener') },
+    { label: '> goto Instagram', run: () => window.open('https://www.instagram.com/baghaztra', '_blank', 'noopener') },
+    { label: '> goto GitHub', run: () => window.open('https://github.com/Baghaztra', '_blank', 'noopener') },
     {
-      label: '> LinkedIn',
+      label: '> goto LinkedIn',
       run: () => window.open('https://www.linkedin.com/in/baghaztra-van-ril-8011b0294', '_blank', 'noopener')
     }
   ];

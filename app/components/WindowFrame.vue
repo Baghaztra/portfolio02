@@ -1,19 +1,93 @@
 <template>
-  <section class="window" :aria-label="title">
-    <div class="window-bar" aria-hidden="true">
-      <span>{{ title }}</span>
-      <span class="window-btns">
-        <span />
-        <span />
-        <span />
-      </span>
-    </div>
-    <div class="window-body">
-      <slot />
-    </div>
-  </section>
+  <div
+    v-if="maximized && !closed"
+    class="overlay"
+    aria-hidden="true"
+    @click="maximized = false"
+  />
+  <Teleport to="body" :disabled="!maximized || closed">
+    <section
+      v-if="!closed"
+      class="window"
+      :class="{ 'is-modal': maximized }"
+      :aria-label="title"
+      :aria-modal="maximized || undefined"
+      :role="maximized ? 'dialog' : undefined"
+    >
+      <div class="window-bar">
+        <span>{{ title }}</span>
+        <span class="window-btns">
+          <button
+            type="button"
+            :aria-label="`${minimized ? 'Expand' : 'Minimize'} ${title}`"
+            :aria-expanded="!minimized"
+            :data-on="minimized || undefined"
+            @click="toggleMinimize"
+          >
+            _
+          </button>
+          <button
+            type="button"
+            :aria-label="`${maximized ? 'Restore' : 'Maximize'} ${title}`"
+            :aria-expanded="maximized"
+            :data-on="maximized || undefined"
+            @click="toggleMaximize"
+          >
+            □
+          </button>
+          <button type="button" :aria-label="`Close ${title}`" @click="closeFrame">
+            ×
+          </button>
+        </span>
+      </div>
+      <div v-show="!minimized" class="window-body">
+        <slot />
+      </div>
+    </section>
+  </Teleport>
+  <button v-if="closed" type="button" class="window-chip" @click="closed = false">
+    [+] {{ title }}
+  </button>
 </template>
 
 <script setup lang="ts">
 defineProps<{ title: string }>();
+
+// ponytail: per-instance refs only, state resets on reload
+const minimized = ref(false);
+const maximized = ref(false);
+const closed = ref(false);
+
+const closeFrame = () => {
+  closed.value = true;
+  maximized.value = false;
+};
+
+// ponytail: minimizing from a modal returns to the inline collapsed frame
+const toggleMinimize = () => {
+  minimized.value = !minimized.value;
+  if (maximized.value) maximized.value = false;
+};
+
+// ponytail: maximizing an empty (minimized) frame makes no sense, restore it
+const toggleMaximize = () => {
+  maximized.value = !maximized.value;
+  if (maximized.value) minimized.value = false;
+};
+
+const onEsc = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') maximized.value = false;
+};
+
+// ponytail: body scroll-lock + esc only while a modal is open
+watch(maximized, (open) => {
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open) document.addEventListener('keydown', onEsc);
+  else document.removeEventListener('keydown', onEsc);
+});
+
+onUnmounted(() => {
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', onEsc);
+});
 </script>
