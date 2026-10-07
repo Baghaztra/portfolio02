@@ -21,6 +21,16 @@
   box-sizing: border-box;
 }
 
+/* ponytail: 4 png @ ~1KB total — beam + busy copied for later use */
+body {
+  cursor: url('/cursors/pointer.png') 0 0, default;
+}
+
+a,
+button {
+  cursor: url('/cursors/link.png') 6 2, pointer;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -158,7 +168,7 @@ img {
   border: 2px solid var(--ink);
   padding: 0.3rem 0.7rem;
   box-shadow: 2px 2px 0 var(--ink);
-  cursor: pointer;
+  cursor: url('/cursors/help.png') 0 0, help;
 }
 
 .brand-btn:hover {
@@ -214,7 +224,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: url('/cursors/pointer.png') 0 0, pointer;
   padding: 0 0 0.15rem;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
 }
@@ -281,7 +291,7 @@ img {
   background: var(--paper);
   color: var(--ink);
   box-shadow: var(--shadow);
-  cursor: pointer;
+  cursor: url('/cursors/link.png') 6 2, pointer;
 }
 
 .window-chip:hover {
@@ -520,7 +530,7 @@ img {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--ink);
-  cursor: pointer;
+  cursor: url('/cursors/link.png') 6 2, pointer;
 }
 
 .sysmenu-item + .sysmenu-item {
