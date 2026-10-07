@@ -45,13 +45,12 @@
       </div>
     </section>
   </Teleport>
-  <button v-if="closed" type="button" class="window-chip" @click="closed = false">
-    [+] {{ title }}
-  </button>
 </template>
 
 <script setup lang="ts">
-defineProps<{ title: string }>();
+import { useClosedFrames } from '~/composables/useClosedFrames';
+
+const props = defineProps<{ title: string; id: string }>();
 
 // ponytail: per-instance refs only, state resets on reload
 // maximized is a model so parents can force the modal open (detail sheets)
@@ -60,10 +59,17 @@ const maximized = defineModel<boolean>('maximized', { default: false });
 const closed = ref(false);
 
 const emit = defineEmits<{ close: [] }>();
+const { register, unregister } = useClosedFrames();
+
+const reopen = () => {
+  closed.value = false;
+  unregister(props.id);
+};
 
 const closeFrame = () => {
   closed.value = true;
   maximized.value = false;
+  register({ id: props.id, title: props.title, reopen });
   emit('close');
 };
 
@@ -91,6 +97,7 @@ watch(maximized, (open) => {
 });
 
 onUnmounted(() => {
+  unregister(props.id);
   document.body.style.overflow = '';
   document.removeEventListener('keydown', onEsc);
 });

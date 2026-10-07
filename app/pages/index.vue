@@ -3,7 +3,7 @@
     <h1 class="sr-only">Baghaztra Van Ril — Software Engineer</h1>
 
     <!-- Hero -->
-    <WindowFrame title="HOME.SYS — WHOAMI">
+    <WindowFrame id="home-whoami" title="HOME.SYS — WHOAMI">
       <div class="hero-grid">
         <div>
           <p class="kicker">> whoami</p>
@@ -36,7 +36,7 @@
     </WindowFrame>
 
     <!-- Selected work -->
-    <WindowFrame title="WORK.DIR — SELECTED">
+    <WindowFrame id="home-selected" title="WORK.DIR — SELECTED">
       <ol class="work-list">
         <ProjectRow
           v-for="p in featuredProjects"
@@ -53,7 +53,7 @@
     </WindowFrame>
 
     <!-- Continue -->
-    <WindowFrame title="GOTO — CONTINUE">
+    <WindowFrame id="home-goto" title="GOTO — CONTINUE">
       <ul class="goto-list">
         <li v-for="link in homeGotoLinks" :key="link.title">
           <NuxtLink v-if="link.to" :to="link.to">

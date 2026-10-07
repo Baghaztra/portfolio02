@@ -10,12 +10,26 @@
       >
         BAGHAZTRA:/
       </button>
+      <div v-if="frames.length" class="nav-chips" aria-label="Closed windows">
+        <button
+          v-for="f in frames"
+          :key="f.id"
+          type="button"
+          class="nav-chip"
+          @click="f.reopen"
+        >
+          [+] {{ f.title }}
+        </button>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { useClosedFrames } from '~/composables/useClosedFrames';
 import { useSysMenu } from '~/composables/useSysMenu';
+
+const { frames } = useClosedFrames();
 
 const { state, openAt } = useSysMenu();
 

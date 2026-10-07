@@ -2,7 +2,7 @@
   <div>
     <h1 class="sr-only">Projects — Baghaztra Van Ril</h1>
 
-    <WindowFrame title="WORK.DIR — ARCHIVE">
+    <WindowFrame id="projects-archive" title="WORK.DIR — ARCHIVE">
       <p class="kicker">> ls ./projects --all</p>
       <h2 class="proj-heading">Project archive</h2>
       <p>
@@ -29,6 +29,7 @@
     <WindowFrame
       v-if="active"
       :key="active.slug"
+      :id="`sheet-${active.slug}`"
       :title="`SHEET — ${active.slug.toUpperCase()}`"
       v-model:maximized="detailOpen"
       @close="active = null"
