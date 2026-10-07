@@ -8,19 +8,22 @@
     :style="{ left: `${pos.x}px`, top: `${pos.y}px` }"
   >
     <div class="sysmenu-bar" aria-hidden="true"><span>SYS.MENU</span></div>
-    <button
-      v-for="(item, i) in items"
-      :key="item.label"
-      ref="itemEls"
-      type="button"
-      role="menuitem"
-      class="sysmenu-item"
-      :data-active="i === active"
-      @click="run(item)"
-      @mousemove="active = i"
-    >
-      {{ item.label === copyLabel && copied ? '> ✓ link copied' : item.label }}
-    </button>
+    <template v-for="sec in sections" :key="sec.label">
+      <div role="separator" class="sysmenu-sep" aria-hidden="true">{{ sec.label }}</div>
+      <button
+        v-for="item in sec.items"
+        :key="item.label"
+        ref="itemEls"
+        type="button"
+        role="menuitem"
+        class="sysmenu-item"
+        :data-active="item.idx === active"
+        @click="run(item)"
+        @mousemove="active = item.idx"
+      >
+        {{ item.label === copyLabel && copied ? '> ✓ link copied' : item.label }}
+      </button>
+    </template>
   </div>
 </template>
 
@@ -29,7 +32,13 @@ import { useSysMenu } from '~/composables/useSysMenu';
 
 interface MenuItem {
   label: string;
+  idx: number;
   run: () => any;
+}
+
+interface MenuSection {
+  label: string;
+  items: MenuItem[];
 }
 
 const copyLabel = '> copy page link';
@@ -67,8 +76,15 @@ const copyLink = async () => {
   }, 900);
 };
 
-const items = computed<MenuItem[]>(() => {
-  const all: MenuItem[] = [
+const sections = computed<MenuSection[]>(() => {
+  let idx = 0;
+  const group = (label: string, labels: string[], defs: Omit<MenuItem, 'idx'>[]): MenuSection | null => {
+    const items = defs
+      .filter((d) => labels.includes(d.label))
+      .map((d) => ({ ...d, idx: idx++ }));
+    return items.length ? { label, items } : null;
+  };
+  const all: Omit<MenuItem, 'idx'>[] = [
     { label: '> home', run: () => navigateTo('/') },
     { label: '> projects', run: () => navigateTo('/projects') },
     { label: '> journey', run: () => navigateTo('/journey') },
@@ -82,10 +98,19 @@ const items = computed<MenuItem[]>(() => {
     }
   ];
   // ponytail: brand menu is nav-only, page actions stay on right-click
-  return state.value.source === 'brand'
-    ? all.filter((i) => i.label !== '> back to top' && i.label !== copyLabel)
-    : all;
+  const visible =
+    state.value.source === 'brand'
+      ? all.filter((i) => i.label !== '> back to top' && i.label !== copyLabel)
+      : all;
+  const labels = visible.map((i) => i.label);
+  return [
+    group('-- NAVIGATE --', labels, all.slice(0, 3)),
+    group('-- TOOLS --', labels, all.slice(3, 5)),
+    group('-- SOCIAL --', labels, all.slice(5))
+  ].filter((s): s is MenuSection => s !== null);
 });
+
+const flatCount = computed(() => sections.value.reduce((n, s) => n + s.items.length, 0));
 
 const run = (item: MenuItem) => {
   if (item.label !== copyLabel) close();
@@ -114,11 +139,11 @@ const onKeyDown = (e: KeyboardEvent) => {
     close();
   } else if (e.key === 'ArrowDown') {
     e.preventDefault();
-    active.value = (active.value + 1) % items.value.length;
+    active.value = (active.value + 1) % flatCount.value;
     itemEls.value[active.value]?.focus();
   } else if (e.key === 'ArrowUp') {
     e.preventDefault();
-    active.value = (active.value + items.value.length - 1) % items.value.length;
+    active.value = (active.value + flatCount.value - 1) % flatCount.value;
     itemEls.value[active.value]?.focus();
   }
 };

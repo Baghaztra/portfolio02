@@ -24,7 +24,7 @@
         </div>
         <div class="profile-frame">
           <NuxtPicture
-            src="/images/profile.jpg"
+            src="/images/profile.jpeg"
             :img-attrs="{ alt: profile.imageAlt, fetchpriority: 'high' }"
             width="480"
             height="480"

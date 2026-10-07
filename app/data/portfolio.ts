@@ -265,7 +265,7 @@ export const profile = {
   location: 'Padang, West Sumatra, Indonesia',
   intro:
     'I build practical systems: order-management web apps with ML-ranked work queues, local AI monitoring on edge devices, API services, and ESP32-based monitoring and control.',
-  image: '/images/profile.jpg',
+  image: '/images/profile.jpeg',
   imageAlt: 'Portrait of Baghaztra Van Ril',
   github: 'https://github.com/Baghaztra',
   linkedin: 'https://www.linkedin.com/in/baghaztra-van-ril-8011b0294'
