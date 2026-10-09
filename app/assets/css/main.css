@@ -621,10 +621,21 @@ img {
   margin-top: 0;
 }
 
+.sheet-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.sheet-info:only-child {
+  grid-column: 1 / -1;
+}
+
 .proj-shot {
   border: 2px solid var(--ink);
   line-height: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   overflow: hidden;
 }
 
@@ -668,6 +679,16 @@ img {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 44rem) {
+  .sheet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-shot {
+    max-width: 28rem;
+    justify-self: center;
+    width: 100%;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }

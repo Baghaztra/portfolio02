@@ -33,31 +33,35 @@
       v-model:maximized="detailOpen"
       @close="active = null"
     >
-      <div v-if="active.image" class="proj-shot">
-        <NuxtPicture
-          :src="active.image"
-          width="960"
-          height="540"
-          sizes="640px sm:960px"
-          format="avif,webp"
-          :img-attrs="{ alt: active.imageAlt, loading: 'eager', fetchpriority: 'high' }"
-        />
-      </div>
       <h2 class="proj-name">{{ active.title }}</h2>
-      <ProjectCollaborators :project="active" />
-      <p>{{ active.summary }}</p>
-      <ul class="tag-row" :aria-label="`Stack for ${active.title}`">
-        <li v-for="t in active.stack" :key="t" class="tag">{{ t }}</li>
-      </ul>
-      <p class="proj-links">
-        <template v-for="(r, ri) in active.repos" :key="r.url">
-          <template v-if="ri > 0"> · </template>
-          <a :href="r.url" target="_blank" rel="noopener noreferrer">{{ r.label }}</a>
-        </template>
-        <template v-if="active.repos.length && active.demoUrl"> · </template>
-        <a v-if="active.demoUrl" :href="active.demoUrl" target="_blank" rel="noopener noreferrer">Live demo</a>
-        <span v-if="!active.repos.length && !active.demoUrl" class="proj-nolink">No public link</span>
-      </p>
+      <div class="sheet-grid">
+        <div v-if="active.image" class="proj-shot">
+          <NuxtPicture
+            :src="active.image"
+            width="960"
+            height="540"
+            sizes="640px sm:960px"
+            format="avif,webp"
+            :img-attrs="{ alt: active.imageAlt, loading: 'eager', fetchpriority: 'high' }"
+          />
+        </div>
+        <div class="sheet-info">
+          <ProjectCollaborators :project="active" />
+          <p>{{ active.summary }}</p>
+          <ul class="tag-row" :aria-label="`Stack for ${active.title}`">
+            <li v-for="t in active.stack" :key="t" class="tag">{{ t }}</li>
+          </ul>
+          <p class="proj-links">
+            <template v-for="(r, ri) in active.repos" :key="r.url">
+              <template v-if="ri > 0"> · </template>
+              <a :href="r.url" target="_blank" rel="noopener noreferrer">{{ r.label }}</a>
+            </template>
+            <template v-if="active.repos.length && active.demoUrl"> · </template>
+            <a v-if="active.demoUrl" :href="active.demoUrl" target="_blank" rel="noopener noreferrer">Live demo</a>
+            <span v-if="!active.repos.length && !active.demoUrl" class="proj-nolink">No public link</span>
+          </p>
+        </div>
+      </div>
     </WindowFrame>
   </div>
 </template>
