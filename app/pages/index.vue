@@ -76,6 +76,10 @@ import { featuredProjects } from '~/data/projects';
 
 useHead({
   title: 'Baghaztra Van Ril — Software Engineer',
+  meta: [
+    { property: 'og:title', content: 'Baghaztra Van Ril — Software Engineer' },
+    { property: 'og:url', content: 'https://bgztra.my.id/' }
+  ],
   link: [{ rel: 'canonical', href: 'https://bgztra.my.id/' }]
 });
 </script>

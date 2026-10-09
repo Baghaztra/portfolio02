@@ -7,12 +7,11 @@ export interface GotoLink {
 
 export const profile = {
   name: 'Baghaztra Van Ril',
-  role: 'Software Engineer — web apps, backend & APIs, AI workflows, IoT',
+  role: 'Software Engineer Probably',
   location: 'Padang, West Sumatra, Indonesia',
-  intro:
-    'I build practical systems: order-management web apps with ML-ranked work queues, local AI monitoring on edge devices, API services, and ESP32-based monitoring and control.',
+  intro: 'I build things, break things (hehe), and occasionally (hopefully) make them useful. Web apps, backend systems, APIs, local AI, IoT, and whatever side quest comes next. Well, most of the time I build things that probably didn’t need to exist.',
   image: '/images/profile.jpeg',
-  imageAlt: 'Portrait of Baghaztra Van Ril',
+  imageAlt: 'A self-drawn cartoon portrait of me',
   github: 'https://github.com/Baghaztra',
   linkedin: 'https://www.linkedin.com/in/baghaztra-van-ril-8011b0294'
 };

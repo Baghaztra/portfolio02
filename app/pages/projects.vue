@@ -79,6 +79,10 @@ const openProject = (p: Project) => {
 
 useHead({
   title: 'Projects — Baghaztra Van Ril',
+  meta: [
+    { property: 'og:title', content: 'Projects — Baghaztra Van Ril' },
+    { property: 'og:url', content: 'https://bgztra.my.id/projects/' }
+  ],
   link: [{ rel: 'canonical', href: 'https://bgztra.my.id/projects/' }]
 });
 </script>

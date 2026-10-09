@@ -27,6 +27,10 @@ import { journeyItems } from '~/data/journey';
 
 useHead({
   title: 'Background & Milestones — Baghaztra Van Ril',
+  meta: [
+    { property: 'og:title', content: 'Background & Milestones — Baghaztra Van Ril' },
+    { property: 'og:url', content: 'https://bgztra.my.id/journey/' }
+  ],
   link: [{ rel: 'canonical', href: 'https://bgztra.my.id/journey/' }]
 });
 </script>
