@@ -6,8 +6,7 @@
       <p class="kicker">> ls ./projects --all</p>
       <h2 class="proj-heading">Project archive</h2>
       <p>
-        Previous builds, copied from the earlier portfolio with their original
-        descriptions. Select a row to open its full sheet.
+        Everything I've built, from passion projects to paid work, whether solo or as part of a team.
       </p>
       <ol class="work-list">
         <ProjectRow
@@ -64,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { archiveProjects, type Project } from '~/data/portfolio';
+import { archiveProjects, type Project } from '~/data/projects';
 
 const active = ref<Project | null>(null);
 const detailOpen = ref(false);

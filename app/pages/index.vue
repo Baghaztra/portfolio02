@@ -71,7 +71,8 @@
 </template>
 
 <script setup lang="ts">
-import { profile, featuredProjects, homeGotoLinks } from '~/data/portfolio';
+import { profile, homeGotoLinks } from '~/data/portfolio';
+import { featuredProjects } from '~/data/projects';
 
 useHead({
   title: 'Baghaztra Van Ril — Software Engineer',

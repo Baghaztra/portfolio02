@@ -248,6 +248,10 @@ Required:
 - readable body text at 16px or larger;
 - respect `prefers-reduced-motion`.
 
+## Agent Workflow
+
+Do not run generate, test, or build scripts. Leave that to me.
+
 ## Deployment
 
 Deploy the static generated site to Vercel.

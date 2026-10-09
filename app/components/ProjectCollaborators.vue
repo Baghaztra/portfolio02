@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { getCollaborators, type Project } from '~/data/portfolio';
+import { getCollaborators, type Project } from '~/data/projects';
 
 const props = defineProps<{ project: Project }>();
 const team = computed(() => getCollaborators(props.project));
