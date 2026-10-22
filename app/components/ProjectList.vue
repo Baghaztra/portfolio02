@@ -1,5 +1,5 @@
 <template>
-  <ol class="work-list">
+  <ol class="work-list" :class="{ 'work-list--featured': featured }">
     <ProjectRow
       v-for="row in rows"
       :key="row.project.slug"

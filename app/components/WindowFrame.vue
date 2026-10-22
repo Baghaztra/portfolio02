@@ -89,12 +89,13 @@ const onEsc = (e: KeyboardEvent) => {
   if (e.key === 'Escape') maximized.value = false;
 };
 
-// ponytail: body scroll-lock + esc only while a modal is open
+// ponytail: body scroll-lock + esc only while a modal is open; immediate covers sheets that mount open
 watch(maximized, (open) => {
+  if (!import.meta.client) return;
   document.body.style.overflow = open ? 'hidden' : '';
   if (open) document.addEventListener('keydown', onEsc);
   else document.removeEventListener('keydown', onEsc);
-});
+}, { immediate: true });
 
 onUnmounted(() => {
   unregister(props.id);

@@ -1,18 +1,19 @@
 /* Global stylesheet — single source of styling. Scoped CSS only for one-off needs. */
 
 :root {
-  --paper: #ece7db;
-  --paper-dim: #e2dccb;
-  --ink: #1d2a44;
-  --ink-soft: #43506b;
-  --body: #333f52;
+  --paper: #FFF8EC;
+  --paper-dim: #F5ECD9;
+  --ink: #2B1D0E;
+  --ink-soft: #6B4F2A;
+  --body: #3E2D18;
   --red: #b3372c;
   --red-bright: #c93b3b;
-  --line: #1d2a44;
+  --line: #2B1D0E;
+  --border: #0000001a;
   --mono: ui-monospace, "Cascadia Mono", "JetBrains Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --shadow: 5px 5px 0 var(--ink);
+  --shadow: 0 1px 2px #0000000d, 0 8px 24px #0000001a;
 }
 
 *,
@@ -29,6 +30,11 @@ body {
 a,
 button {
   cursor: url('/cursors/link.png') 6 2, pointer;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
 }
 
 html {
@@ -62,7 +68,7 @@ body {
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0 3px,
-    rgba(29, 42, 68, 0.028) 3px 4px
+    rgba(43, 29, 14, 0.028) 3px 4px
   );
   color: var(--body);
   font-family: var(--sans);
@@ -414,6 +420,10 @@ img {
   padding: 0;
 }
 
+.work-list--featured .work-item {
+  padding-block: 1.25rem;
+}
+
 .work-item {
   position: relative;
   display: grid;
@@ -442,7 +452,7 @@ img {
 }
 
 .work-item + .work-item {
-  border-top: 3px dashed var(--ink);
+  border-top: 1px solid var(--border);
 }
 
 .work-index {
@@ -483,10 +493,11 @@ img {
   font-family: var(--mono);
   font-size: 0.85rem;
   font-weight: 700;
-  border: 2px solid var(--ink);
-  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
   color: var(--ink);
-  background: var(--paper);
+  background: #2E7D6F1A;
 }
 
 .work-year {
@@ -629,99 +640,17 @@ img {
   margin-top: 0;
 }
 
-/* Isi sheet dibatasi selebar halaman; di modal frame-nya penuh layar. */
-.sheet-inner {
-  max-width: 62rem;
-  margin-inline: auto;
-}
-
-.sheet-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.25rem 1rem;
-  flex-wrap: wrap;
-}
-
-.sheet-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.sheet-info:only-child {
-  grid-column: 1 / -1;
-}
-
-.proj-shot {
-  border: 2px solid var(--ink);
-  line-height: 0;
-  margin-bottom: 0;
-  overflow: hidden;
-}
-
-.proj-shot img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top;
-}
-
-.proj-name {
-  font-size: clamp(1.35rem, 3.5vw, 2rem);
-  margin: 0 0 0.5rem;
-  overflow-wrap: break-word;
-}
-
-.sheet-meta {
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
-  margin: 0 0 0.5rem;
-}
-
-.sheet-summary {
-  margin-bottom: 1.25rem;
-}
-
-/* Label/value: kolom label ikut panjang teksnya, jadi label panjang tidak terpotong. */
-.sheet-facts {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.75rem 1.25rem;
-  margin: 0 0 1rem;
-}
-
-.sheet-facts dt {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  padding-top: 0.35rem;
-}
-
-.sheet-facts dd {
-  margin: 0;
-  min-width: 0;
-}
-
-.sheet-facts .tag-row {
-  margin-bottom: 0;
-}
-
 .window-body .tag-row {
   margin-bottom: 0.9rem;
 }
 
-.proj-links {
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0;
+.collab a {
+  color: var(--red);
+  text-underline-offset: 3px;
+}
+
+.collab a:hover {
+  color: var(--ink);
 }
 
 .proj-nolink {
@@ -742,16 +671,6 @@ img {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 44rem) {
-  .sheet-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .proj-shot {
-    max-width: 28rem;
-    justify-self: center;
-    width: 100%;
-  }
-
   .hero-grid {
     grid-template-columns: 1fr;
   }
