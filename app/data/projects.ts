@@ -15,12 +15,16 @@ export interface Project {
   role: string;
   year: string;
   featured?: { index: string; file: string; tags: string[] };
-  image: string | null; // null = aset belum ada, modal skip gambar
+  image: string | null;
   imageAlt: string;
   stack: string[];
   repos: ProjectLink[]; // 1 proyek = 1 entri, banyak repo
   demoUrl: string | null;
   collaborators: string[]; // key dari `people`
+  // Opsional, 1 kalimat, bahasa Inggris (cara isi: lihat catatan di array `projects`)
+  problem?: string; // masalah nyata yang dipecahkan
+  decision?: string; // keputusan teknis yang paling menentukan
+  outcome?: string; // hasil atau status saat ini
 }
 
 // Registry rekan: ubah sekali, berlaku di semua proyek
@@ -29,6 +33,9 @@ export const people: Record<string, Person> = {
   pitokdf: { name: 'Pitok', site: 'https://pitok.my.id/' }
 };
 
+// Cara isi problem/decision/outcome: satu kalimat per field, fakta saja, tanpa
+// klaim hasil yang belum terbukti. Contoh sudah diisi di `rumah-jahit-yan`.
+// Field kosong otomatis tidak muncul di halaman /projects/.
 export const projects: Project[] = [
   {
     slug: 'rosa',
@@ -58,7 +65,13 @@ export const projects: Project[] = [
     stack: ['XGBoost', 'FastAPI', 'NUXT', 'Fabric.js'],
     repos: [{label: 'Source', url:'https://github.com/Baghaztra/tugas_akhir'}],
     demoUrl: 'http://yan.bgztra.my.id/',
-    collaborators: []
+    collaborators: [],
+    // Contoh pengisian — rapikan atau hapus kalau tidak sesuai fakta.
+    problem:
+      'Work order for the tailors was prioritised by hand, so urgent orders could wait behind bulk ones.',
+    decision:
+      'Rank every order with XGBoost Learning to Rank instead of a fixed manual score.',
+    outcome: 'Submitted as the final project at Politeknik Negeri Padang, 2026.'
   },
   {
     slug: 'boss-business-one-stop-system',

@@ -238,6 +238,14 @@ img {
   border-bottom: 3px solid var(--ink);
 }
 
+.window-bar > span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .window-btns {
   display: flex;
   gap: 0.4rem;
@@ -621,6 +629,20 @@ img {
   margin-top: 0;
 }
 
+/* Isi sheet dibatasi selebar halaman; di modal frame-nya penuh layar. */
+.sheet-inner {
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  flex-wrap: wrap;
+}
+
 .sheet-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -643,11 +665,52 @@ img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: top;
 }
 
 .proj-name {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
   margin: 0 0 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.sheet-meta {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+.sheet-summary {
+  margin-bottom: 1.25rem;
+}
+
+/* Label/value: kolom label ikut panjang teksnya, jadi label panjang tidak terpotong. */
+.sheet-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.75rem 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.sheet-facts dt {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 0.35rem;
+}
+
+.sheet-facts dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.sheet-facts .tag-row {
+  margin-bottom: 0;
 }
 
 .window-body .tag-row {

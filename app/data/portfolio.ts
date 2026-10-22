@@ -9,7 +9,7 @@ export const profile = {
   name: 'Baghaztra Van Ril',
   role: 'Software Engineer Probably',
   location: 'Padang, West Sumatra, Indonesia',
-  intro: 'I build things, break things (hehe), and occasionally (hopefully) make them useful. Web apps, backend systems, APIs, local AI, IoT, and whatever side quest comes next. Well, most of the time I build things that probably didn’t need to exist.',
+  intro: 'I build things, break things (hehe), and occasionally (hopefully) make them useful. Even if they probably didn’t need to exist. Web apps, backend systems, APIs, local AI, IoT, and whatever side quest comes next.',
   image: '/images/profile.jpeg',
   imageAlt: 'A self-drawn cartoon portrait of me',
   github: 'https://github.com/Baghaztra',

@@ -37,18 +37,7 @@
 
     <!-- Selected work -->
     <WindowFrame id="home-selected" title="WORK.DIR — SELECTED">
-      <ol class="work-list">
-        <ProjectRow
-          v-for="p in featuredProjects"
-          :key="p.featured!.index"
-          :index="p.featured!.index"
-          :heading="p.featured!.file"
-          :strong="p.title"
-          :desc="p.summary"
-          :tags="p.featured!.tags"
-          :meta="p.year"
-        />
-      </ol>
+      <ProjectList :projects="featuredProjects" featured />
       <NuxtLink to="/projects" class="more-link">> open full directory_</NuxtLink>
     </WindowFrame>
 
