@@ -25,6 +25,13 @@ const props = defineProps<{ projects: Project[]; featured?: boolean }>();
 
 const active = ref<Project | null>(null);
 
+// ponytail: rows show a short summary, the full text lives in ProjectDetail
+const clip = (text: string, max = 175) => {
+  if (text.length <= max) return text;
+  const cut = text.lastIndexOf(' ', max);
+  return `${text.slice(0, cut > 0 ? cut : max).trimEnd()}...`;
+};
+
 // ponytail: featured rows keep the compact home format, the rest use the archive format
 const rows = computed(() =>
   props.projects.map((p, i) =>
@@ -34,7 +41,7 @@ const rows = computed(() =>
           index: p.featured.index,
           heading: p.featured.file,
           strong: p.title,
-          desc: p.summary,
+          desc: clip(p.summary),
           tags: p.featured.tags,
           meta: p.year
         }
@@ -43,7 +50,7 @@ const rows = computed(() =>
           index: String(i + 1).padStart(3, '0'),
           heading: p.title,
           strong: '',
-          desc: p.summary,
+          desc: clip(p.summary),
           tags: p.stack,
           meta: `${p.role} · ${p.year}`
         }

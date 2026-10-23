@@ -193,7 +193,7 @@ const maximized = ref(true);
 }
 
 .insight-card--2 {
-  background: var(--red);
+  background: #2E7D6F;
   color: var(--paper);
 }
 
